@@ -8,9 +8,18 @@ import javax.servlet.http.*;
 
 @WebServlet(name = "HelloServlet", urlPatterns = "/hello")
 public class HelloWorldServlet extends HttpServlet {
-    protected void doGet(HttpServletRequest req, HttpServletResponse response) throws IOException {
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<h1>Hello, World!</h1>");
+    protected void doGet(HttpServletRequest req, HttpServletResponse res) throws IOException {
+        res.setContentType("text/html");
+        PrintWriter out = res.getWriter();
+        String name = req.getParameter("name");
+
+        if (req.getParameterMap().containsKey("name")){
+            out.println("<h1 style=\"font-family: cursive;\">Hello, " + name + "!</h1>");
+        }
+        else{
+            out.println("<h1 style=\"font-family: fantasy;\">Hello, World!</h1>");
+        }
     }
 }
+
+//
