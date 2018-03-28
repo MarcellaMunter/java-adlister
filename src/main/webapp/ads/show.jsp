@@ -12,6 +12,6 @@
 </head>
 <body>
      <% String adTitle = (String)request.getAttribute("ad"); %>
-    <% System.out.println(adTitle); %>
+
 </body>
 </html>
