@@ -8,3 +8,6 @@ public class DaoFactory {
         return adsDao;
     }
 }
+
+
+//The DaoFactory makes sure only one object is being created at a time.
