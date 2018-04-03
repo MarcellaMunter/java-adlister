@@ -27,7 +27,7 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public List<Ad> all() throws SQLException {
+    public List<Ad> all() throws SQLException{
         List<Ad> ads = new ArrayList<>();
         Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
