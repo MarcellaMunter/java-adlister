@@ -6,6 +6,8 @@ import java.sql.SQLException;
 
 import com.mysql.cj.jdbc.Driver;
 
+import javax.swing.plaf.nimbus.State;
+
 
 public class MySQLAdsDao implements Ads {
     private static Connection connection = null;
@@ -30,7 +32,8 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> all() throws SQLException{
         List<Ad> ads = new ArrayList<>();
         Statement stmt = connection.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM ads");
+        ResultSet rs = stmt.executeQuery("SELECT * from ads");
+
 
         while (rs.next()) {
             Ad ad = new Ad(rs.getLong("id"),rs.getLong("user_id"),  rs.getString("title"), rs.getString("description"));
