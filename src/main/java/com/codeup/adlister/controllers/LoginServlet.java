@@ -28,6 +28,7 @@ public class LoginServlet extends HttpServlet {
         User user = DaoFactory.getUsersDao().findByUsername(username);
 
         if (user == null) {
+            System.out.println("user is null - redirecting");
             response.sendRedirect("/login");
             return;
         }
@@ -36,9 +37,11 @@ public class LoginServlet extends HttpServlet {
         boolean validAttempt = Password.check(password, user.getPassword());
 
         if (validAttempt) {
+            System.out.println("Valid login");
             request.getSession().setAttribute("user", user);
             response.sendRedirect("/profile");
         } else {
+            System.out.println("Passwords don't match.");
             response.sendRedirect("/login");
         }
 
